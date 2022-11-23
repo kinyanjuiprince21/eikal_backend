@@ -56,6 +56,6 @@ public class AppUser extends Person implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled;
     }
 }

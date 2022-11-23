@@ -2,8 +2,11 @@ package com.eikal.models.organization;
 
 import com.eikal.models.people.AppUser;
 import lombok.*;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
 @Getter
@@ -25,6 +28,7 @@ public class OrganizationAdmin {
     private String status;
 
     @OneToOne
+    @Cascade(CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private AppUser appUser;
 
@@ -35,5 +39,11 @@ public class OrganizationAdmin {
     @ManyToOne
     @JoinColumn(name = "modified_by")
     private OrganizationAdmin modifiedBy;
+
+    private boolean created = false;
+
+    @ManyToOne
+    @JoinColumn(name = "organization_id")
+    private Organization organization;
 
 }

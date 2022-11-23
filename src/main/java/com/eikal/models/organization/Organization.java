@@ -19,18 +19,12 @@ public class Organization {
     @Id
     @SequenceGenerator(sequenceName = "organization_sequence", name = "organization_sequence", allocationSize = 1)
     @GeneratedValue(generator = "organization_sequence", strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private String name;
     private String details;
+
+    @Enumerated(EnumType.STRING)
     private OrganizationType type;
-
-    @OneToOne
-    @JoinColumn(name = "created_by")
-    private OrganizationAdmin createdBy;
-
-    @ManyToOne
-    @JoinColumn(name = "modified_by")
-    private OrganizationAdmin modifiedBy;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
