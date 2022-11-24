@@ -20,7 +20,7 @@ public class City {
 
     @Column(length = 100)
     private String name;
-    private boolean capital;
+    private boolean capital = false;
 
     @Enumerated(EnumType.STRING)
     private Countries country;
