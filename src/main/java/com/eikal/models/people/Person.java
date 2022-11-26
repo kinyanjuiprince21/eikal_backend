@@ -1,8 +1,12 @@
 package com.eikal.models.people;
 
 import lombok.*;
+import org.springframework.security.core.userdetails.User;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -13,13 +17,14 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 public class Person {
-
     private String firstName;
     private String lastName;
     private String username;
     private String email;
     private String phone;
-    private String gender;
+    private LocalDate birthDate;
+    @Enumerated(EnumType.STRING)
+    private GenderType gender = GenderType.OTHER;
     private LocalDateTime dateCreated = LocalDateTime.now();
     private LocalDateTime dateModified = LocalDateTime.now();
 
