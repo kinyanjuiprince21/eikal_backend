@@ -19,7 +19,8 @@ public class Person {
     private String username;
     private String email;
     private String phone;
-    private LocalDateTime dateCreated;
-    private LocalDateTime dateModified;
+    private String gender;
+    private LocalDateTime dateCreated = LocalDateTime.now();
+    private LocalDateTime dateModified = LocalDateTime.now();
 
 }

@@ -1,5 +1,6 @@
 package com.eikal.service.people;
 
+import com.eikal.models.organization.OrganizationAdmin;
 import com.eikal.models.people.AppUser;
 import com.eikal.repository.people.AppUserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,6 +24,10 @@ public class AppUserService {
         appUser.setDateModified(LocalDateTime.now());
         appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
         return appUserRepository.save(appUser);
+    }
+
+    public AppUser getUserById(Long id) {
+        return appUserRepository.findById(id).orElse(null);
     }
 
 }

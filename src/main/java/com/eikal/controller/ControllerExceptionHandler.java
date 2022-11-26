@@ -13,5 +13,4 @@ public class ControllerExceptionHandler {
         return ResponseEntity.status(404).body("Bad Type, Error has occurred\nMessage: " + e.getMessage());
     }
 
-
 }

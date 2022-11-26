@@ -1,5 +1,11 @@
 package com.eikal.models.people;
 
 public enum UserRoles {
-    SUPER_ADMIN, ADMIN, RECEPTIONIST, USER1, USER2
+    ORGANIZATION_SUPER_ADMIN,
+    ORGANIZATION_ADMIN,
+    FACILITY_SUPER_ADMIN,
+    FACILITY_ADMIN,
+    FACILITY_RECEPTIONIST,
+    USER1,
+    USER2
 }

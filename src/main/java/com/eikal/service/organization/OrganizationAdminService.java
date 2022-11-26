@@ -34,4 +34,7 @@ public class OrganizationAdminService {
         return orgAdminRepo.save(organizationAdmin);
     }
 
+    public OrganizationAdmin getById(Long id) {
+        return orgAdminRepo.findById(id).orElse(null);
+    }
 }

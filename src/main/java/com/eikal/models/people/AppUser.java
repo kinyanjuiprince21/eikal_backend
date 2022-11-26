@@ -13,8 +13,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 @ToString
 
 @Entity
@@ -25,8 +24,8 @@ public class AppUser extends Person implements UserDetails {
     @GeneratedValue(generator = "app_user_sequence", strategy = GenerationType.AUTO)
     private Long id;
     private String password;
-    private boolean enabled;
-    private boolean expired;
+    private boolean enabled = true;
+    private boolean expired = false;
     private LocalDateTime lastLogin;
 
     @Enumerated(EnumType.STRING)
