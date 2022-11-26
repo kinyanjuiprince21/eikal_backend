@@ -8,6 +8,7 @@ public class Patient {
     private Long id;
     private User user;
     private Facility facility;
-    private PatientType type;
+    private Long nationalId;
+    private PatientType type = PatientType.OUT_PATIENT;
 
 }
