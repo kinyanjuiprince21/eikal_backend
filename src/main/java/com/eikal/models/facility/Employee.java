@@ -46,4 +46,8 @@ public class Employee {
     @ManyToOne()
     @JoinColumn(name = "modified_by")
     private AppUser modifiedBy;
+
+    public Employee(long id) {
+        this.id = id;
+    }
 }
