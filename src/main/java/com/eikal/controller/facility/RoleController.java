@@ -2,13 +2,16 @@ package com.eikal.controller.facility;
 
 import com.eikal.models.facility.Role;
 import com.eikal.service.facility.RoleService;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author albert ejuku
+ * @version 1.0
+ */
 @RestController
 public class RoleController {
 

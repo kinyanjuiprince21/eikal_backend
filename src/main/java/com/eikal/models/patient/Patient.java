@@ -35,7 +35,6 @@ public class Patient {
     @JoinColumn(name = "facility_id")
     private Facility facility;
     private Long nationalId;
-    private PatientType type = PatientType.OUT_PATIENT;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 

@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author albert ejuku
+ * @version 1.0
+ */
 @RestController
 public class DepartmentController {
 
