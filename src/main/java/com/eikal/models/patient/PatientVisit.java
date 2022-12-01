@@ -6,11 +6,12 @@ import com.eikal.models.facility.Employee;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import java.time.LocalDate;
+import javax.persistence.Lob;
 import java.time.LocalDateTime;
 
+
 /**
- * @author albert ejuku
+ * @author Albert Ejuku
  * @version 1.0
  */
 public class PatientVisit {
@@ -20,6 +21,7 @@ public class PatientVisit {
     private PatientVisitType visitType = PatientVisitType.OUT_PATIENT;
     private Department department;
     private String cause;
+    @Lob
     private String details;
     private boolean billable;
     private boolean billed;
@@ -37,6 +39,7 @@ public class PatientVisit {
      *     <li>The patient has been discharged</li>
      * </ul>
      */
+    @Lob
     private String modificationReason;
     private Employee createdBy;
     private Employee modifiedBy;

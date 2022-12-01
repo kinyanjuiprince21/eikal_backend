@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
     List<Role> findAllByFacility_Id(Long facilityId);

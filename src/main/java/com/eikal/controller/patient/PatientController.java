@@ -3,15 +3,16 @@ package com.eikal.controller.patient;
 import com.eikal.models.patient.Patient;
 import com.eikal.service.patient.PatientService;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Controller
 public class PatientController {
 
@@ -40,8 +41,7 @@ public class PatientController {
     @GetMapping("patients/facility")
     public ResponseEntity<?> findPatientsInFacility(@RequestParam("id") Long facilityId, @RequestParam int page, @RequestParam int size) {
         Page<Patient> patientPage = patientService.findPatientsInFacility(facilityId, page, size);
-        List<Patient> patients = patientPage.getContent();
-        return !patients.isEmpty() ?
+        return !patientPage.getContent().isEmpty() ?
                 ResponseEntity.status(200).body(patientPage) :
                 ResponseEntity.status(415).body("No patient in this page");
     }

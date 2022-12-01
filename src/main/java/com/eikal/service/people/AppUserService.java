@@ -1,6 +1,5 @@
 package com.eikal.service.people;
 
-import com.eikal.models.organization.OrganizationAdmin;
 import com.eikal.models.people.AppUser;
 import com.eikal.repository.people.AppUserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Service
 public class AppUserService {
 

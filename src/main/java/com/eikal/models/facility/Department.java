@@ -7,6 +7,10 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+/**
+ * @author albert ejuku
+ * @version 1.0
+ */
 @Getter
 @Setter
 @RequiredArgsConstructor

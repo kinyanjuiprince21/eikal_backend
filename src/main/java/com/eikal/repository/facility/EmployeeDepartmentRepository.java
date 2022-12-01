@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Repository
 public interface EmployeeDepartmentRepository extends JpaRepository<EmployeeDepartment, Long> {
     List<EmployeeDepartment> findAllByDepartment_Id(Long depId);

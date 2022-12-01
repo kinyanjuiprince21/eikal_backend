@@ -12,6 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Service
 public class OrganizationService {
 

@@ -9,6 +9,10 @@ import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Getter
 @Setter
 @RequiredArgsConstructor

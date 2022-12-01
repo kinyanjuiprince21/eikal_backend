@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("city")
 public class CityController {

@@ -12,6 +12,10 @@ import org.hibernate.annotations.Fetch;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Getter
 @Setter
 @RequiredArgsConstructor

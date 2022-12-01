@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Controller
 public class UserController {
 
@@ -41,11 +45,7 @@ public class UserController {
     @GetMapping("users")
     public ResponseEntity<?> findUsers(@RequestParam("page") int pageNo, @RequestParam("size") int pageSize) {
         Page<User> userPage = userService.findUsers(pageNo, pageSize);
-        List<User> users = userPage.getContent();
-        int pages = userPage.getTotalPages();
-        Map<String, Object> pagesMap = Map.of("users", users, "pages", pages);
-
-        return !users.isEmpty() ?
+        return !userPage.getContent().isEmpty() ?
                 ResponseEntity.status(200).body(userPage) :
                 ResponseEntity.status(415).body("no users found");
     }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 /**
- * @author albert ejuku
+ * @author Albert Ejuku
  * @version 1.0
  */
 @RestController

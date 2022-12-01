@@ -4,24 +4,24 @@ import com.eikal.models.organization.Organization;
 import com.eikal.models.organization.OrganizationAdmin;
 import com.eikal.models.people.AppUser;
 import com.eikal.service.organization.OrganizationService;
-import com.fasterxml.jackson.annotation.JsonRawValue;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("organization")
 public class OrganizationController {
 
     private final OrganizationService organizationService;
-    private final ObjectMapper objectMapper;
 
     public OrganizationController(OrganizationService organizationService) {
         this.organizationService = organizationService;
-        this.objectMapper = new ObjectMapper();
     }
 
     @PostMapping("save")

@@ -3,11 +3,9 @@ package com.eikal.service.patient;
 import com.eikal.models.facility.Employee;
 import com.eikal.models.facility.Facility;
 import com.eikal.models.patient.Patient;
-import com.eikal.models.patient.PatientType;
 import com.eikal.models.people.User;
 import com.eikal.repository.patient.PatientRepository;
 import com.eikal.service.facility.EmployeeService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,13 +13,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Map;
 
 @Service
 public class PatientService {
 
-    ObjectMapper objectMapper = new ObjectMapper();
     private final PatientRepository patientRepository;
     private final EmployeeService employeeService;
 
@@ -37,7 +33,6 @@ public class PatientService {
         Patient patient = new Patient();
         patient.setUser(new User(Long.parseLong((String) map.get("user"))));
         patient.setFacility(new Facility(Long.parseLong((String) map.get("facility"))));
-        patient.setType(PatientType.valueOf((String) map.get("type")));
         patient.setCreatedBy(employee);
         patient.setModifiedBy(employee);
         patient.setNationalId(Long.valueOf((String) map.get("nationalId")));

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author albert ejuku
+ * @author Albert Ejuku
  * @version 1.0
  */
 @Configuration

@@ -15,6 +15,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Service
 public class UserService {
 

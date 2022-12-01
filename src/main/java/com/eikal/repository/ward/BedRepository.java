@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
 @Repository
 public interface BedRepository extends JpaRepository<Bed, Long> {
     List<Bed> findAllByRoom_Id(Long roomId);
