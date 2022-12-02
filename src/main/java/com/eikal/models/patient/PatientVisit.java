@@ -3,10 +3,12 @@ package com.eikal.models.patient;
 
 import com.eikal.models.facility.Department;
 import com.eikal.models.facility.Employee;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
@@ -14,15 +16,31 @@ import java.time.LocalDateTime;
  * @author Albert Ejuku
  * @version 1.0
  */
+
+@Getter
+@Setter
+@RequiredArgsConstructor
+@ToString
+
+@Entity
 public class PatientVisit {
+
+    @Id
+    @SequenceGenerator(name = "patient_visit_sequence", sequenceName = "patient_visit_sequence", allocationSize = 1)
+    @GeneratedValue(generator = "patient_visit_sequence", strategy = GenerationType.AUTO)
     private Long id;
 
     @Enumerated(EnumType.STRING)
     private PatientVisitType visitType = PatientVisitType.OUT_PATIENT;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
     private Department department;
     private String cause;
+
     @Lob
     private String details;
+
     private boolean billable;
     private boolean billed;
     private boolean discharge;
@@ -41,7 +59,13 @@ public class PatientVisit {
      */
     @Lob
     private String modificationReason;
+
+    @ManyToOne
+    @JoinColumn(name = "created_by")
     private Employee createdBy;
+
+    @ManyToOne
+    @JoinColumn(name = "modified_by")
     private Employee modifiedBy;
 
 }
