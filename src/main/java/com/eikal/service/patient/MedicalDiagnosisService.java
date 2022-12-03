@@ -18,8 +18,8 @@ public class MedicalDiagnosisService {
     }
 
     public MedicalDiagnosis saveDiagnosis(Map<String, Object> map) {
-        MedicalDiagnosis medicalDaiagnosis = new MedicalDiagnosis();
-        return diagnosisRepository.save(medicalDaiagnosis);
+        MedicalDiagnosis diagnosis = new MedicalDiagnosis();
+        return diagnosisRepository.save(diagnosis);
     }
 
 }
