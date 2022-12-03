@@ -1,6 +1,7 @@
 package com.eikal.service.facility;
 
 import com.eikal.models.facility.Laboratory;
+import com.eikal.models.patient.LabStaff;
 import com.eikal.repository.facility.LaboratoryRepository;
 import com.eikal.repository.patient.LabStaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,22 @@ public class LaboratoryService {
 
     public List<Laboratory> findLabsInDepartment(Long depId) {
         return labRepository.findAllByDepartment_Id(depId);
+    }
+
+    public LabStaff saveLabStaff(Map<String, Object> staff) {
+        LabStaff labStaff = new LabStaff();
+        return labStaffRepository.save(labStaff);
+    }
+
+    public LabStaff findLabStaff(Long id) {
+        return labStaffRepository.findById(id).orElse(null);
+    }
+
+    public List<LabStaff> findStaffInLab(Long labId){
+        return labStaffRepository.findAllByLaboratory_Id(labId);
+    }
+
+    public List<LabStaff> findStaffInFacility(Long facilityId) {
+        return labStaffRepository.findAllByLaboratory_Department_Facility_Id(facilityId);
     }
 }
