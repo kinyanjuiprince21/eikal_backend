@@ -34,6 +34,10 @@ public class PatientVisit {
     private PatientVisitType visitType = PatientVisitType.OUT_PATIENT;
 
     @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
     private String cause;
