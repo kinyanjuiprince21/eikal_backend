@@ -22,4 +22,8 @@ public class MedicalDiagnosisService {
         return diagnosisRepository.save(diagnosis);
     }
 
+    public MedicalDiagnosis findDiagnosis(Long id) {
+        return diagnosisRepository.findById(id).orElse(null);
+    }
+
 }
