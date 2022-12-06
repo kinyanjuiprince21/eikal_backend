@@ -69,4 +69,5 @@ public class DepartmentController {
                 ResponseEntity.status(200).body(departments);
     }
 
+
 }
