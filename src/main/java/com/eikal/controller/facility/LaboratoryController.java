@@ -22,4 +22,6 @@ public class LaboratoryController {
                 ResponseEntity.status(201).body(laboratory) :
                 ResponseEntity.status(415).build();
     }
+
+
 }
