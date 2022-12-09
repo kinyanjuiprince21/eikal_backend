@@ -13,7 +13,7 @@ import java.util.Map;
  * @author Albert Ejuku
  * @version 1.0
  */
-@Controller
+@RestController
 public class PatientController {
 
     private final PatientService patientService;
