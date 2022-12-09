@@ -26,8 +26,8 @@ public class LaboratoryController {
                 ResponseEntity.status(415).build();
     }
 
-    @GetMapping("laboratory")
-    public ResponseEntity<?> findLab(@RequestParam("id") Long id) {
+    @GetMapping("laboratory/{id}")
+    public ResponseEntity<?> findLab(@PathVariable("id") Long id) {
         Laboratory laboratory = labService.findLab(id);
         return laboratory != null ?
                 ResponseEntity.status(200).body(laboratory) :
