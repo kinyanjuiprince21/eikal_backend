@@ -20,7 +20,7 @@ public class PatientVisitController {
     }
 
     @PostMapping("visit/save")
-    public ResponseEntity<?> saveVisit(Map<String, Object> map) {
+    public ResponseEntity<?> saveVisit(@RequestBody Map<String, Object> map) {
         PatientVisit patientVisit = visitService.saveVisit(map);
         return patientVisit != null ?
                 ResponseEntity.status(201).body(patientVisit) :
