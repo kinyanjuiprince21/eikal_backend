@@ -42,7 +42,7 @@ public class PatientLabTestController {
     @GetMapping("lab-test/laboratory")
     public ResponseEntity<?> labTests(@RequestParam Long id) {
         List<PatientLabTest> labTests = labTestService.labTests(id);
-        return labTests != null ?
+        return !labTests.isEmpty() ?
                 ResponseEntity.status(200).body(labTests) :
                 ResponseEntity.status(404).body("Laboratory have no tests.");
     }
@@ -50,7 +50,7 @@ public class PatientLabTestController {
     @GetMapping("lab-test/facility")
     public ResponseEntity<?> facilityLabTests(@RequestParam Long id) {
         List<PatientLabTest> labTests = labTestService.facilityLabTests(id);
-        return labTests != null ?
+        return !labTests.isEmpty() ?
                 ResponseEntity.status(200).body(labTests) :
                 ResponseEntity.status(404).body("facility have no lab tests.");
     }
