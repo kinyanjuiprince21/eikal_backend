@@ -1,11 +1,10 @@
 package com.eikal.controller.facility;
 
 import com.eikal.models.facility.Laboratory;
+import com.eikal.models.patient.LabStaff;
 import com.eikal.service.facility.LaboratoryService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +18,8 @@ public class LaboratoryController {
         this.labService = labService;
     }
 
-    public ResponseEntity<?> save(Map<String, Object> map) {
+    @PostMapping("laboratory/add")
+    public ResponseEntity<?> save(@RequestBody Map<String, Object> map) {
         Laboratory laboratory = labService.saveLab(map);
         return laboratory != null ?
                 ResponseEntity.status(201).body(laboratory) :
@@ -50,6 +50,36 @@ public class LaboratoryController {
                 ResponseEntity.status(404).body("No laboratories in this department");
     }
 
+    @PostMapping("laboratory/staff/save")
+    public ResponseEntity<?> saveLabStaff(@RequestBody Map<String, Object> staff) {
+        LabStaff labStaff = labService.saveLabStaff(staff);
+        return labStaff != null ?
+                ResponseEntity.status(201).body(labStaff) :
+                ResponseEntity.status(415).build();
+    }
 
+    @GetMapping("laboratory/staff")
+    public ResponseEntity<?> findLabStaff(@RequestParam Long id) {
+        LabStaff labStaff = labService.findLabStaff(id);
+        return labStaff != null ?
+                ResponseEntity.status(200).body(labStaff) :
+                ResponseEntity.status(404).body("Could not find lab staff");
+    }
+
+    @GetMapping("laboratory/staffs")
+    public ResponseEntity<?> findStaffInLab(@RequestParam Long labId){
+        List<LabStaff> labStaffs = labService.findStaffInLab(labId);
+        return !labStaffs.isEmpty() ?
+                ResponseEntity.status(200).body(labStaffs) :
+                ResponseEntity.status(404).body("No staffs in this laboratory");
+    }
+
+    @GetMapping("facility/lab-staffs")
+    public ResponseEntity<?> findStaffInFacility(@RequestParam Long facilityId) {
+        List<LabStaff> labStaffs = labService.findStaffInFacility(facilityId);
+        return !labStaffs.isEmpty() ?
+                ResponseEntity.status(200).body(labStaffs) :
+                ResponseEntity.status(404).body("No laboratory staffs in this facility.");
+    }
 
 }
