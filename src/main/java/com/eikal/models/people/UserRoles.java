@@ -11,5 +11,6 @@ public enum UserRoles {
     FACILITY_ADMIN,
     FACILITY_RECEPTIONIST,
     USER1,
-    USER2
+    USER2,
+    TECHNICIAN
 }

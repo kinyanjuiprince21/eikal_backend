@@ -47,7 +47,7 @@ public class PatientVisit {
 
     private boolean billable;
     private boolean billed;
-    private boolean discharge;
+    private boolean discharged;
     private String status;
     private LocalDateTime dateVisited;
     private LocalDateTime dateModified;

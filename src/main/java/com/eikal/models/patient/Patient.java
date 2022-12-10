@@ -54,4 +54,8 @@ public class Patient {
     @JoinColumn(name = "modified_by")
     private Employee modifiedBy;
 
+    public Patient(Long id) {
+        this.id = id;
+    }
+
 }

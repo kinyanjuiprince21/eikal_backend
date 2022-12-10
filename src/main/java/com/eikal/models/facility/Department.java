@@ -35,4 +35,8 @@ public class Department extends GeneralType{
     @ManyToOne
     @JoinColumn(name = "facility_id")
     private Facility facility;
+
+    public Department(Long id) {
+        this.id = id;
+    }
 }

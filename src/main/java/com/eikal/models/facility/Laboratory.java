@@ -38,4 +38,7 @@ public class Laboratory extends GeneralType {
     private Department department;
 
 
+    public Laboratory(long id) {
+        this.id = id;
+    }
 }
