@@ -32,22 +32,22 @@ public class Employee {
     @JoinColumn(name = "category_id")
     private EmployeeCategory category;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "facility_id")
     private Facility facility;
 
     private LocalDateTime dateCreated = LocalDateTime.now();
     private LocalDateTime dateModified = LocalDateTime.now();
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "created_by")
     private AppUser createdBy;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "modified_by")
     private AppUser modifiedBy;
 

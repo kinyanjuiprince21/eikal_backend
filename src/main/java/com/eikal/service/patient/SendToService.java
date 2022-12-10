@@ -32,7 +32,7 @@ public class SendToService {
         send.setType((String) map.get("type"));
         send.setCode(Long.valueOf((String) map.get("code")));
         send.setSent(Boolean.parseBoolean((String) map.get("sent")));
-        send.setSent(Boolean.parseBoolean((String) map.get("received")));
+        send.setReceived(Boolean.parseBoolean((String) map.get("received")));
         return sendToRepository.save(send);
     }
 
