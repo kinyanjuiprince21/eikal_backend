@@ -2,16 +2,23 @@ package com.eikal.controller.patient;
 
 import com.eikal.models.patient.SendTo;
 import com.eikal.service.patient.SendToService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Albert Ejuku
+ * @version 1.0
+ */
+@RestController
 public class SendToController {
 
     private final SendToService sendService;
 
+    @Autowired
     public SendToController(SendToService sendService) {
         this.sendService = sendService;
     }

@@ -28,7 +28,7 @@ public class SendToService {
         send.setReceiver(new Employee(Long.parseLong((String) map.get("receiver"))));
         send.setDateSent(LocalDateTime.now());
         send.setReason((String) map.get("reason"));
-        send.setFrom((String) map.get("from"));
+        send.setFrom_((String) map.get("from"));
         send.setType((String) map.get("type"));
         send.setCode(Long.valueOf((String) map.get("code")));
         send.setSent(Boolean.parseBoolean((String) map.get("sent")));
