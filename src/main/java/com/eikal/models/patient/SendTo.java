@@ -39,9 +39,11 @@ public class SendTo {
     @ManyToOne
     @JoinColumn(name = "sender_id")
     private Employee sender;
+    private String from;
     private String type; // one of many types e.g diagnosis, visit, test, pharmacy, surgery e.t.c
     private Long code; // pk of type
     private boolean sent;
     private boolean received;
     private LocalDateTime dateSent;
+    private LocalDateTime dateReceived;
 }

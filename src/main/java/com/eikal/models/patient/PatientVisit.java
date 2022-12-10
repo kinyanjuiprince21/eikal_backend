@@ -72,4 +72,7 @@ public class PatientVisit {
     @JoinColumn(name = "modified_by")
     private Employee modifiedBy;
 
+    public PatientVisit(Long id) {
+        this.id = id;
+    }
 }
