@@ -1,7 +1,10 @@
 package com.eikal.service.patient;
 
+import com.eikal.models.facility.Employee;
 import com.eikal.models.patient.MedicalDiagnosis;
+import com.eikal.models.patient.PatientVisit;
 import com.eikal.repository.patient.MedicalDiagnosisRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,7 @@ import java.util.Map;
 public class MedicalDiagnosisService {
 
     private final MedicalDiagnosisRepository diagnosisRepository;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
     public MedicalDiagnosisService(MedicalDiagnosisRepository diagnosisRepository) {
@@ -19,7 +23,9 @@ public class MedicalDiagnosisService {
     }
 
     public MedicalDiagnosis saveDiagnosis(Map<String, Object> map) {
-        MedicalDiagnosis diagnosis = new MedicalDiagnosis();
+        MedicalDiagnosis diagnosis = objectMapper.convertValue(map.get("diagnosis"), MedicalDiagnosis.class);
+        diagnosis.setPatientVisit(new PatientVisit(Long.valueOf((String) map.get("patientVisit"))));
+        diagnosis.setDoctor(new Employee(Long.parseLong((String) map.get("doctor"))));
         return diagnosisRepository.save(diagnosis);
     }
 

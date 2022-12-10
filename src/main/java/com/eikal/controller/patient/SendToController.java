@@ -31,6 +31,14 @@ public class SendToController {
                 ResponseEntity.status(415).build();
     }
 
+    @PutMapping("send/update")
+    public ResponseEntity<?> update(@RequestParam Long sendId, @RequestParam Long receivedById, @RequestParam boolean received) {
+        SendTo send = sendService.update(sendId, receivedById, received);
+        return send != null ?
+                ResponseEntity.ok().body(send) :
+                ResponseEntity.status(415).build();
+    }
+
     @GetMapping("send/{id}")
     public ResponseEntity<?> find(@PathVariable Long id) {
         SendTo send = sendService.find(id);

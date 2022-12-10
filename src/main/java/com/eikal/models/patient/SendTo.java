@@ -32,9 +32,17 @@ public class SendTo {
     private Employee receiver;
 
     @ManyToOne
+    @JoinColumn(name = "received_by")
+    private Employee receivedBy;
+
+    @ManyToOne
     @JoinColumn(name = "visit_id")
     private PatientVisit visit;
+
     private String reason;
+
+    @Lob
+    private String details;
 
     @ManyToOne
     @JoinColumn(name = "sender_id")

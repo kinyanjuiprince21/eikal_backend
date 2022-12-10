@@ -36,6 +36,14 @@ public class SendToService {
         return sendToRepository.save(send);
     }
 
+    public SendTo update(Long id, Long receivedBy, boolean received) {
+        SendTo sendTo = this.find(id);
+        sendTo.setReceived(received);
+        sendTo.setDateReceived(LocalDateTime.now());
+        sendTo.setReceivedBy(new Employee(receivedBy));
+        return sendToRepository.save(sendTo);
+    }
+
     public SendTo find(Long id) {
         return sendToRepository.findById(id).orElse(null);
     }

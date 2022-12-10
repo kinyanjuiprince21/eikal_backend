@@ -33,13 +33,34 @@ public class MedicalDiagnosis {
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Employee doctor;
-
+    @Lob
+    private String symptoms;
+    @Lob
+    private String medicalHistory;
+    @Lob
+    private String currentMedications;
+    @Lob
+    private String allergies;
+    @Lob
+    private String lifestyle;
+    @Lob
+    private String habits;
+    @Lob
+    private String physicalExamination;
+    @Lob
+    private String physicalExaminationFindings;
+    @Lob
     private String findings;
+    @Lob
     private String prescription;
+    @Lob
     private String treatment;
+    @Lob
     private String advice;
+    private boolean recommendTest;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
+    private String modifyReason; // can be of type:-> test results, different result e.t.c
 
     @ManyToOne
     @JoinColumn(name = "modified_by")
