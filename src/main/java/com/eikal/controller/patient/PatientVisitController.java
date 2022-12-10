@@ -58,4 +58,5 @@ public class PatientVisitController {
                 ResponseEntity.status(200).body(visits) :
                 ResponseEntity.notFound().build();
     }
+
 }
