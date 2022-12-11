@@ -30,6 +30,8 @@ public class Relationship {
     @ManyToOne
     @JoinColumn(name = "user2_id")
     private User user2;
+
+    @Enumerated(EnumType.STRING)
     private RelationshipType type = RelationshipType.OTHER;
     private String details;
     private Long isNextOfKinOf = (long) -1;

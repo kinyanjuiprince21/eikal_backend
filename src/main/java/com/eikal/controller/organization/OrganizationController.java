@@ -39,11 +39,4 @@ public class OrganizationController {
         return ResponseEntity.status(200).body(organization);
     }
 
-    @PostMapping("process")
-    public void process(@RequestBody Collection<? extends Map<String, Object>> payload) {
-
-        System.out.println(payload);
-
-    }
-
 }

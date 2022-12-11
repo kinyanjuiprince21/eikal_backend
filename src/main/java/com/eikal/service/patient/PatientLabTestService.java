@@ -1,6 +1,11 @@
 package com.eikal.service.patient;
 
+import com.eikal.models.facility.Employee;
+import com.eikal.models.facility.Laboratory;
+import com.eikal.models.patient.MedicalDiagnosis;
 import com.eikal.models.patient.PatientLabTest;
+import com.eikal.models.patient.PatientVisit;
+import com.eikal.models.patient.SendTo;
 import com.eikal.repository.patient.PatientLabTestRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +26,23 @@ public class PatientLabTestService {
 
     public PatientLabTest save(Map<String, Object> map) {
         PatientLabTest labTest = new PatientLabTest();
-        ObjectMapper objectMapper = new ObjectMapper();
-        System.out.println(objectMapper.convertValue(map, PatientLabTest.class));
-//        return testRepository.save(labTest);
-        return null;
+        labTest.setPatientVisit(new PatientVisit(Long.valueOf((String) map.get("patientVisit"))));
+        labTest.setTestedBy(new Employee(Long.parseLong((String) map.get("testedBy"))));
+        labTest.setSentBy(new SendTo(Long.parseLong((String) map.get("sentToId"))));
+        labTest.setLaboratory(new Laboratory(Long.parseLong((String) map.get("laboratory"))));
+        labTest.setDiagnosis(new MedicalDiagnosis(Long.parseLong((String) map.get("diagnosis"))));
+        labTest.setTestId((String) map.get("testId"));
+        labTest.setName((String) map.get("name"));
+        labTest.setPurpose((String) map.get("purpose"));
+        labTest.setResults((String) map.get("results"));
+        labTest.setConclusion((String) map.get("conclusion"));
+        labTest.setRecommendation((String) map.get("recommendation"));
+        labTest.setSpecimenSource((String) map.get("specimenSource"));
+        labTest.setResultUnit((String) map.get("resultUnit"));
+        labTest.setContainer((String) map.get("container"));
+        labTest.setFrequency((String) map.get("frequency"));
+        labTest.setCompleted(Boolean.parseBoolean((String) map.get("completed")));
+        return testRepository.save(labTest);
     }
 
     public PatientLabTest findTest(Long id) {

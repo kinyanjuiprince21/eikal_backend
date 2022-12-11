@@ -57,6 +57,15 @@ public class MedicalDiagnosis {
     private String treatment;
     @Lob
     private String advice;
+    @Lob
+    private String diagnosis;
+    @Lob
+    private String medication;
+    @Lob
+    private String dosage;
+    @Lob
+    private String instructions;
+
     private boolean recommendTest = false;
     private boolean completed = false;
     private LocalDateTime dateCreated;
@@ -66,6 +75,10 @@ public class MedicalDiagnosis {
     @ManyToOne
     @JoinColumn(name = "modified_by")
     private Employee modifiedBy;
+
+    public MedicalDiagnosis(long id) {
+        this.id = id;
+    }
     // TODO: 29/11/2022 findings, prescription, bill, lab
 
 }

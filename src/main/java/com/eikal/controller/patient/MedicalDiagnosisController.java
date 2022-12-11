@@ -31,6 +31,14 @@ public class MedicalDiagnosisController {
                 ResponseEntity.status(415).build();
     }
 
+    @PutMapping("diagnosis/update")
+    public ResponseEntity<?> updateDiagnosis(@RequestBody Map<String, Object> map, @RequestParam Long id) {
+        MedicalDiagnosis diagnosis = diagnosisService.update(map, id);
+        return diagnosis != null ?
+                ResponseEntity.status(200).body(diagnosis) :
+                ResponseEntity.status(415).build();
+    }
+
     @GetMapping("diagnosis/{id}")
     public ResponseEntity<?> findDiagnosis(@PathVariable Long id) {
         MedicalDiagnosis diagnosis = diagnosisService.findDiagnosis(id);

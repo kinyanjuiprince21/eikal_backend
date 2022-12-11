@@ -54,4 +54,14 @@ public class SendTo {
     private boolean received;
     private LocalDateTime dateSent;
     private LocalDateTime dateReceived;
+    private LocalDateTime dateSentBack;
+
+    @Enumerated(EnumType.STRING)
+    private SendBackTypes sendBack = SendBackTypes.UNNECESSARY;
+
+    private String sendBackReason;
+
+    public SendTo(long id) {
+        this.id = id;
+    }
 }

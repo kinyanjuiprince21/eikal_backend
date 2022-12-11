@@ -1,5 +1,6 @@
 package com.eikal.controller.patient;
 
+import com.eikal.models.patient.SendBackTypes;
 import com.eikal.models.patient.SendTo;
 import com.eikal.service.patient.SendToService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,14 @@ public class SendToController {
     @PutMapping("send/update")
     public ResponseEntity<?> update(@RequestParam Long sendId, @RequestParam Long receivedById, @RequestParam boolean received) {
         SendTo send = sendService.update(sendId, receivedById, received);
+        return send != null ?
+                ResponseEntity.ok().body(send) :
+                ResponseEntity.status(415).build();
+    }
+
+    @PutMapping("send/send-back")
+    public ResponseEntity<?> sendBack(@RequestParam Long sendId, @RequestParam String backType, @RequestParam String reason) {
+        SendTo send = sendService.update(sendId, SendBackTypes.valueOf(backType), reason);
         return send != null ?
                 ResponseEntity.ok().body(send) :
                 ResponseEntity.status(415).build();

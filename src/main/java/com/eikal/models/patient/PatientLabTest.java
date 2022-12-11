@@ -2,6 +2,8 @@ package com.eikal.models.patient;
 
 import com.eikal.models.facility.Employee;
 import com.eikal.models.facility.Laboratory;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -20,6 +22,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @ToString
 
+@JsonIgnoreProperties(value = {"sentBy", "testedBy", "modifiedBy", "diagnosis", "patientVisit", "laboratory"})
 @Entity
 public class PatientLabTest {
 
@@ -29,18 +32,22 @@ public class PatientLabTest {
     private Long id;
     private String testId;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "patient_visit")
     private PatientVisit patientVisit;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "diagnosis_id")
     private MedicalDiagnosis diagnosis;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "tested_by")
     private Employee testedBy;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "modified_by")
     private Employee modifiedBy;
@@ -64,6 +71,7 @@ public class PatientLabTest {
     private String container;
     private String frequency;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "laboratory_id")
     private Laboratory laboratory;

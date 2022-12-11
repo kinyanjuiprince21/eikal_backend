@@ -2,6 +2,7 @@ package com.eikal.service.patient;
 
 import com.eikal.models.facility.Employee;
 import com.eikal.models.patient.PatientVisit;
+import com.eikal.models.patient.SendBackTypes;
 import com.eikal.models.patient.SendTo;
 import com.eikal.repository.patient.SendToRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,14 @@ public class SendToService {
         sendTo.setReceived(received);
         sendTo.setDateReceived(LocalDateTime.now());
         sendTo.setReceivedBy(new Employee(receivedBy));
+        return sendToRepository.save(sendTo);
+    }
+
+    public SendTo update(Long id, SendBackTypes backTypes, String reason) {
+        SendTo sendTo = this.find(id);
+        sendTo.setSendBack(backTypes);
+        sendTo.setSendBackReason(reason);
+        sendTo.setDateSentBack(LocalDateTime.now());
         return sendToRepository.save(sendTo);
     }
 
