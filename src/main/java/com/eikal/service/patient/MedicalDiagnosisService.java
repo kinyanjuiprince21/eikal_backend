@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -23,9 +24,24 @@ public class MedicalDiagnosisService {
     }
 
     public MedicalDiagnosis saveDiagnosis(Map<String, Object> map) {
-        MedicalDiagnosis diagnosis = objectMapper.convertValue(map.get("diagnosis"), MedicalDiagnosis.class);
+        MedicalDiagnosis diagnosis = new MedicalDiagnosis();
         diagnosis.setPatientVisit(new PatientVisit(Long.valueOf((String) map.get("patientVisit"))));
         diagnosis.setDoctor(new Employee(Long.parseLong((String) map.get("doctor"))));
+        diagnosis.setSymptoms((String) map.get("symptoms"));
+        diagnosis.setMedicalHistory((String) map.get("medicalHistory"));
+        diagnosis.setCurrentMedications((String) map.get("currentMedications"));
+        diagnosis.setLifestyle((String) map.get("lifestyle"));
+        diagnosis.setAllergies((String) map.get("allergies"));
+        diagnosis.setHabits((String) map.get("habits"));
+        diagnosis.setPhysicalExamination((String) map.get("physicalExamination"));
+        diagnosis.setPhysicalExaminationFindings((String) map.get("physicalExaminationFindings"));
+        diagnosis.setRecommendTest(Boolean.parseBoolean((String) map.get("recommendTest")));
+        diagnosis.setFindings((String) map.get("findings"));
+        diagnosis.setPrescription((String) map.get("prescription"));
+        diagnosis.setTreatment((String) map.get("treatment"));
+        diagnosis.setAdvice((String) map.get("advice"));
+        diagnosis.setCompleted(Boolean.parseBoolean((String) map.get("completed")));
+        diagnosis.setDateCreated(LocalDateTime.now());
         return diagnosisRepository.save(diagnosis);
     }
 

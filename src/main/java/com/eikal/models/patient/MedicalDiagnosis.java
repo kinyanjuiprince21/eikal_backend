@@ -57,7 +57,8 @@ public class MedicalDiagnosis {
     private String treatment;
     @Lob
     private String advice;
-    private boolean recommendTest;
+    private boolean recommendTest = false;
+    private boolean completed = false;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
     private String modifyReason; // can be of type:-> test results, different result e.t.c

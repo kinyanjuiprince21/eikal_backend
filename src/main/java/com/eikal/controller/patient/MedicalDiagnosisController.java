@@ -24,7 +24,7 @@ public class MedicalDiagnosisController {
     }
 
     @PostMapping("diagnosis/save")
-    public ResponseEntity<?> saveDiagnosis(Map<String, Object> map) {
+    public ResponseEntity<?> saveDiagnosis(@RequestBody Map<String, Object> map) {
         MedicalDiagnosis diagnosis = diagnosisService.saveDiagnosis(map);
         return diagnosis != null ?
                 ResponseEntity.status(201).body(diagnosis) :
