@@ -13,7 +13,6 @@ import java.util.Map;
  * @version 1.0
  */
 @RestController
-@RequestMapping("facility")
 public class FacilityController {
 
     private final FacilityService facilityService;
@@ -22,7 +21,7 @@ public class FacilityController {
         this.facilityService = facilityService;
     }
 
-    @PostMapping("save")
+    @PostMapping("facility/save")
     public ResponseEntity<?> saveFacility(@RequestBody Map<String, Object> facility) {
         Facility savedFacility = facilityService.saveFacility(facility);
         if (savedFacility != null) {
@@ -32,7 +31,7 @@ public class FacilityController {
         return ResponseEntity.status(415).body("Could not save facility");
     }
 
-    @GetMapping("{id}")
+    @GetMapping("facility/{id}")
     public ResponseEntity<?> find(@PathVariable Long id) {
         Facility facility = facilityService.find(id);
         return facility != null ?
@@ -40,7 +39,7 @@ public class FacilityController {
                 ResponseEntity.status(404).body("Facility not found");
     }
 
-    @GetMapping("org")
+    @GetMapping("facilities/org")
     public ResponseEntity<?> findAllInOrganization(@RequestParam("id") Long orgId) {
         List<Facility> facilities = facilityService.findAllInOrganization(orgId);
         return facilities != null ?
@@ -48,7 +47,7 @@ public class FacilityController {
                 ResponseEntity.status(404).body("No facility found");
     }
 
-    @GetMapping("search")
+    @GetMapping("facilities/search")
     public ResponseEntity<?> searchByName(@RequestParam("q") String name) {
         List<Facility> facilities = facilityService.searchByName(name);
         return facilities != null ?
