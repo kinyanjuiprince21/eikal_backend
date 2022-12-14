@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,7 +46,18 @@ public class FacilityService {
         facility.setDateCreated(LocalDateTime.now());
         facility.setDateModified(LocalDateTime.now());
         return facilityRepository.save(facility);
+    }
 
+    public Facility find(Long id) {
+        return facilityRepository.findById(id).orElse(null);
+    }
+
+    public List<Facility> findAllInOrganization(Long orgId) {
+        return facilityRepository.findAllByCreatedBy_Organization_Id(orgId);
+    }
+
+    public List<Facility> searchByName(String name) {
+        return facilityRepository.findAllByNameContainingIgnoreCase(name);
     }
 
 }
