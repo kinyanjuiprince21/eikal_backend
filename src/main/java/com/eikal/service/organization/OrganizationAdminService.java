@@ -35,4 +35,8 @@ public class OrganizationAdminService {
     public OrganizationAdmin getById(Long id) {
         return orgAdminRepo.findById(id).orElse(null);
     }
+
+    public OrganizationAdmin findByUser(Long userId) {
+        return orgAdminRepo.findByAppUser_Id(userId);
+    }
 }

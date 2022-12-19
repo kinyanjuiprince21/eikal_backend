@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface OrganizationAdminRepository extends JpaRepository<OrganizationAdmin, Long> {
+    OrganizationAdmin findByAppUser_Id(Long userId);
+
 }
