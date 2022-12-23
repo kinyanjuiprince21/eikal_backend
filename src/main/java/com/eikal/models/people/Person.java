@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 public class Person {
+
     private String firstName;
     private String lastName;
     private String username;
